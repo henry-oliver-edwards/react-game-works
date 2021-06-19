@@ -1,0 +1,32 @@
+@import "src/sass/Fonts"
+@import "node_modules/bootstrap/scss/bootstrap"
+
+.title
+  @include title_font
+  color: white !important
+  text-decoration: white underline !important
+  font-size: xx-large !important
+  @include margin-right($spacer * 0.5)
+  text-align: left
+  vertical-align: bottom
+  @include padding-bottom($spacer * 0)
+
+.game_font
+  @include title_font
+  color: white !important
+  text-decoration: white underline !important
+  font-size: medium !important
+  text-align: left
+  vertical-align: bottom
+  @include padding-bottom($spacer * 0)
+
+.navbar-brand
+  padding-top: 0 !important
+  padding-bottom: 0 !important
+  margin-right: 0 !important
+
+.navbar
+  padding-top: 0 !important
+  padding-bottom: 0 !important
+  align-items: baseline !important
+
