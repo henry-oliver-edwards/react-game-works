@@ -14,7 +14,7 @@ const generateRandomColour = () => {
 const ColouredSquare =()=>{
 
     const square = {id: 1, props: {bg: 'black', bc: 'red'}, display: ColouredGrid}
-    const change_bg = {target_id: 1, type: 'click', callback: (own)=>{own.bg = generateRandomColour();}}
+    const change_bg = {target_id: 1, type: 'click', callback: (own)=>{own.props.bg = generateRandomColour(); console.log(own)}}
 
     return (
         <div>
