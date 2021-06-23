@@ -4,12 +4,14 @@ const GameContainer = (props) => {
 
     const events = props.events
     const [render, setRender] = useState([])
-    const elements = props.elements
+    const [elements, setElements] = useState(props.elements)
+    // const elements = props.elements
     const fps = props.target_fps
 
-    const constructRender =()=>{
+    const constructRender = () => {
         console.log('firing')
-        const toRender = []
+        const toRender = [];
+
         for (const ele in elements) {
             let click = emptyFunc
             for (const e in events) {
@@ -21,16 +23,34 @@ const GameContainer = (props) => {
             }
             toRender.push(createElement('div', {
                     onClick: () => {
-                        click(elements[ele]['props']);
+                        click(elements[ele]);
                     }
                 },
                 createElement(elements[ele]['display'], {...elements[ele]['props'], id: elements[ele]['id']}, null)))
         }
+
         setRender(toRender)
     }
 
-    useEffect(()=>{
-        const timer = setInterval(constructRender, 1000/fps)
+    const checkSimilarity = (elements) => {
+        const oldProps = [];
+        const newProps = [];
+        console.log(elements)
+        render.forEach((value, index, array) => {
+            oldProps.push(value.props.children.props)
+        })
+        elements.forEach((value, index, array) => {
+            newProps.push(value['props'])
+        })
+        if (oldProps === newProps) {
+            console.log(true)
+        } else {
+            console.log(false)
+        }
+    }
+
+    useEffect(() => {
+        const timer = setInterval(constructRender, 1000 / fps)
     }, [constructRender, fps])
 
     return (
