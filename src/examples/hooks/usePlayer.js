@@ -10,13 +10,11 @@ const usePlayer =()=>{
     const [currentPlayer, setCurrentPlayer] = useState(getStartingPlayer())
 
     const changePlayer = useCallback(()=>{
-        let newPlayer;
         if (currentPlayer === 'X') {
-            newPlayer = 'O'
+            setCurrentPlayer('O')
         } else if (currentPlayer === 'O') {
-            newPlayer = 'X'
+            setCurrentPlayer('X')
         }
-        setCurrentPlayer(newPlayer)
     }, [currentPlayer])
 
     return [currentPlayer, changePlayer]

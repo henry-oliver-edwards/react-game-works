@@ -32,14 +32,11 @@ const NaughtsAndCrosses =()=>{
         return array
     }
 
-    const eventsArray = setPlayerArrayFunctions()
-    console.log(eventsArray)
-
     return (
         <div>
             <h3>Current player {currentPlayer}</h3>
             <GameContainer elements={[square1, square2, square3, square4,
-            square5, square6, square7, square8, square9]} events={setPlayerArrayFunctions()} target_fps={30}/>
+            square5, square6, square7, square8, square9]} events={setPlayerArrayFunctions()} target_fps={10}/>
         </div>
     )
 
