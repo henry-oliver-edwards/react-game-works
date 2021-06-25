@@ -101,7 +101,7 @@ const NaughtsAndCrosses = () => {
             <h3 style={{color: 'white'}}>{topText ? topText : `current player is ${currentPlayer}`}</h3>
             <GameContainer elements={[square1, square2, square3, square4,
                 square5, square6, square7, square8, square9]} events={setPlayerArrayFunctions()}
-                           logic={[logic]} onLogic={[onLogic]} target_fps={10}/>
+                           logic={[logic]} onLogic={[onLogic]} target_fps={15}/>
         </div>
     )
 
