@@ -5,9 +5,14 @@ const GameContainer = (props) => {
     const events = props.events
     const [render, setRender] = useState([])
     const [elements, setElements] = useState(props.elements)
+    const [logic, setLogic] = useState(props.logic)
+    const [onLogic, setOnLogic] = useState(props.onLogic)
+    const [currentLogic, setCurrentLogic] = useState(undefined)
     const fps = props.target_fps
 
     const constructRender = () => {
+        checkLogic()
+        doOnLogic()
         const toRender = [];
         for (const ele in elements) {
             let click = emptyFunc
@@ -29,6 +34,20 @@ const GameContainer = (props) => {
         setRender(toRender)
     }
 
+    const checkLogic =()=>{
+        for(let i in logic) {
+            let temp = logic[i](elements)
+            if (temp !== undefined) {
+                setCurrentLogic(temp)
+            }
+        }
+    }
+
+    const doOnLogic =()=>{
+        for(let i in onLogic) {
+            onLogic[i](currentLogic)
+        }
+    }
     // const checkSimilarity = (elements) => {
     //     const oldProps = [];
     //     const newProps = [];
